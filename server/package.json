@@ -1,0 +1,23 @@
+{
+  "name": "neuralsum-server",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/start.js",
+    "start": "node --disable-warning=ExperimentalWarning src/start.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\"",
+    "check-api": "node --disable-warning=ExperimentalWarning scripts/check-api.js",
+    "users": "node --disable-warning=ExperimentalWarning scripts/manage-users.js",
+    "check-db": "node --disable-warning=ExperimentalWarning scripts/check-db.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^7.7.0"
+  }
+}

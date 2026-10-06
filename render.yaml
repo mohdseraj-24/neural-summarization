@@ -1,0 +1,16 @@
+# Render Blueprint: Render > New > Blueprint > pick this GitHub repo. Then paste your keys when asked.
+services:
+  - type: web
+    name: neuralsum-ai
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # you type it in the Render dashboard (never commit it)
+      - key: MONGODB_URI
+        sync: false          # MongoDB Atlas connection string (login + saved history)
+      - key: JWT_SECRET
+        generateValue: true  # random secret, keeps login sessions valid across restarts
